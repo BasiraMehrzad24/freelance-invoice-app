@@ -7,6 +7,7 @@ async function getUser() {
 
         const client = 
             {
+         id: Date.now() + Math.random(),
          name: `${user.name.first}`,
          email:`${user.email}`,
          company:"Freelance.Inc",
@@ -24,4 +25,10 @@ async function getUser() {
     }
 }
 
-getUser();
+
+if (!localStorage.getItem("clients")){
+    getUser();
+}
+else{
+    renderClients();
+}

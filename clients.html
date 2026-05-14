@@ -31,15 +31,22 @@
                   <div class="form-card">
                       <h2>Add New Client</h2>
 
-                          <form class="client-form">
+                          <form class="client-form" id="addNewClient">
+                             <div class="form-group">
+                                <input type="text" id="name" placeholder="Client Name">
 
-                             <input type="text" placeholder="Client Name">
+                                <small id="name-error" class="error-message"></small>
+                           </div>
 
-                              <input type="email" placeholder="Client Email">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Client Email">
  
-                             <input type="text" placeholder="Company Name">
+                           <small id="email-error" class="error-message"></small>
+                        </div>
+ 
+                             <input type="text" placeholder="Company Name" id="company">
 
-                             <textarea placeholder="Notes"></textarea>
+                             <textarea placeholder="Notes" id="note"></textarea>
 
                              <button type="submit">Add Client</button>
 
@@ -48,12 +55,11 @@
 
 
     <div class="table-card">
-
         <div class="table-header">
             <h2>Clients List</h2>
         </div>
-
-        <table>
+    <div class="table-container">
+      <table>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -65,8 +71,11 @@
             </thead>
             <tbody  id="clients-list">
             </tbody>
-
         </table>
+
+    </div>
+
+      
 
     </div>
 
