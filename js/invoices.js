@@ -96,6 +96,7 @@ invoiceForm.addEventListener("submit" , function(event){
     //  change the inputs value to string and save it to localstorage
      localStorage.setItem("invoices", JSON.stringify(invoices));
      renderInvoices();
+     updateInvoiceStats();
      invoiceForm.reset();
 })
 
@@ -162,12 +163,9 @@ function renderInvoices(){
             `;
        });
 
-
-
-
-
 }
 renderInvoices();
+updateInvoiceStats();
 
 
 
@@ -187,6 +185,7 @@ invoiceList.addEventListener("click", function(event){
 
         localStorage.setItem("invoices" , JSON.stringify(updatedInvoices));
             renderInvoices();
+            updateInvoiceStats();
     }
 
 })
@@ -232,10 +231,11 @@ invoiceList.addEventListener("click", function(event){
 
 
 renderInvoices();
+updateInvoiceStats();
 
 
 
-// for paid / unpaid togle 
+// for paid / unpaid toggle 
 
 invoiceList.addEventListener("click", function(event){
 
@@ -271,7 +271,40 @@ invoiceList.addEventListener("click", function(event){
         );
 
         renderInvoices();
+        updateInvoiceStats();
+        
 
     }
 
 });
+
+
+
+
+// Invoice status
+
+function updateInvoiceStats(){
+
+      const invoice = JSON.parse(localStorage.getItem("invoices")) || [];
+
+      const totalRevenue = invoice.reduce((total , invoice) => {
+       return total + invoice.amount;
+      }, 0 );
+
+      const paidInvoices = invoice.filter(invoice => {
+        return invoice.status === "Paid";
+      }) 
+     const unpaidInvoices = invoice.filter(invoice => {
+        return invoice.status === "Unpaid";
+     })
+
+     document.getElementById("total-revenue").textContent = `$${totalRevenue}`;
+     document.getElementById("paid-count").textContent = paidInvoices.length;
+     document.getElementById("unpaid-count").textContent = unpaidInvoices.length;
+
+
+}
+
+
+     renderInvoices();
+     updateInvoiceStats();

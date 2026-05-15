@@ -30,5 +30,46 @@ if (!localStorage.getItem("clients")){
     getUser();
 }
 else{
+
     renderClients();
+
 }
+
+
+
+
+// Zen quotes API
+async function getQuote(){
+
+    try{
+
+        const response = await fetch(
+        "https://corsproxy.io/?https://zenquotes.io/api/quotes"
+        );
+
+        const data = await response.json();
+
+        const randomQuote =
+        data[Math.floor(Math.random() * data.length)];
+
+        document.getElementById("quote").textContent =
+        randomQuote.q;
+
+        document.getElementById("author").textContent =
+        randomQuote.a || "Unknown";
+
+    }
+    catch(error){
+
+        console.log(error);
+
+        document.getElementById("quote").textContent =
+        "Failed to load quote";
+
+        document.getElementById("author").textContent = "";
+
+    }
+
+}
+
+getQuote();

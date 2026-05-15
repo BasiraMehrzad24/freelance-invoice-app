@@ -15,7 +15,7 @@
     <div class="dashboard">
 
         <aside class="sidebar">
-            <h2 class="logo">FreelanceHub</h2>
+            <h2 class="logo">FreelanceCore</h2>
 
             <nav>
                 <ul>
@@ -27,14 +27,60 @@
         </aside>
 
         <main class="main-content">
+<section class="dashboard-stats">
 
-            <header class="topbar">
-                <h1>Clients Management</h1>
-                <p>Manage your freelance clients easily</p>
-            </header>
+    <div class="stat-card">
+        <h3>Total Clients</h3>
+        <p id="total-clients">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Total Invoices</h3>
+        <p id="total-invoices">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <p id="total-revenue">$0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Paid Invoices</h3>
+        <p id="paid-invoices">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Unpaid Invoices</h3>
+        <p id="unpaid-invoices">0</p>
+    </div>
+
+</section>
+
+
+<section class="quote-section">
+
+    <div class="quote-card">
+
+        <h2>Daily Motivation</h2>
+
+        <p id="quote">
+            Loading quote...
+        </p>
+
+        <span id="author">
+            -
+        </span>
+
+    </div>
+
+</section>
 
         </main>
 
     </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
 </body>
 </html>
