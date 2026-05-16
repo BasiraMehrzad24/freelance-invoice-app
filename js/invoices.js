@@ -95,15 +95,17 @@ invoiceForm.addEventListener("submit" , function(event){
 }
     //  change the inputs value to string and save it to localstorage
      localStorage.setItem("invoices", JSON.stringify(invoices));
+     
      renderInvoices();
      updateInvoiceStats();
-     invoiceForm.reset();
+    invoiceForm.reset();
 })
 
 
 // render the invoices form into table
 
 const invoiceList = document.getElementById("invoice-list");
+
 function renderInvoices(){
     // getting invoices and clients from localStorage
     const invoices =JSON.parse(localStorage.getItem("invoices")) || [];
@@ -184,12 +186,12 @@ invoiceList.addEventListener("click", function(event){
         });
 
         localStorage.setItem("invoices" , JSON.stringify(updatedInvoices));
-            renderInvoices();
-            updateInvoiceStats();
+
     }
 
 })
-
+renderInvoices();
+updateInvoiceStats();
 
 
 // Edit Invoices
@@ -270,13 +272,13 @@ invoiceList.addEventListener("click", function(event){
             JSON.stringify(invoices)
         );
 
-        renderInvoices();
-        updateInvoiceStats();
-        
-
+      renderInvoices();
+      updateInvoiceStats();
     }
 
 });
+
+
 
 
 
@@ -306,5 +308,5 @@ function updateInvoiceStats(){
 }
 
 
-     renderInvoices();
-     updateInvoiceStats();
+renderInvoices();
+updateInvoiceStats();

@@ -57,6 +57,8 @@
 
               const emailError = document.getElementById("email-error");
 
+              const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
               nameError.textContent = "";
 
               emailError.textContent = "";
@@ -70,12 +72,9 @@
                 isValid = false;
               }
 
-              if(email === ""){
-
-               emailError.textContent = "Email is required";
-
-               isValid = false;
-              }
+               if(!email.match(emailPattern)){
+               emailError.textContent = "Enter valid email";
+               }
 
              if(!isValid){
 

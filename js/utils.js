@@ -31,7 +31,9 @@ if (!localStorage.getItem("clients")){
 }
 else{
 
-    renderClients();
+    if(typeof renderClients === "function"){
+        renderClients();
+    }
 
 }
 
@@ -40,6 +42,16 @@ else{
 
 // Zen quotes API
 async function getQuote(){
+
+    const quoteElement =
+    document.getElementById("quote");
+
+    const authorElement =
+    document.getElementById("author");
+
+    if(!quoteElement || !authorElement){
+        return;
+    }
 
     try{
 
